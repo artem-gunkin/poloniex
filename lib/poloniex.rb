@@ -67,6 +67,10 @@ module Poloniex
     post 'returnTradeHistory', currencyPair: currency_pair, start: start, :end => end_time
   end
 
+  def self.chart_data( currency_pair, start = 0, end_time = Time.now.to_i, period = 900 )
+    post 'returnChartData', currencyPair: currency_pair, start: start, :end => end_time, :period => period
+  end
+
   def self.buy( currency_pair, rate, amount )
     post 'buy', currencyPair: currency_pair, rate: rate, amount: amount
   end
